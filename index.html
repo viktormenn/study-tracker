@@ -1,0 +1,112 @@
+  <!DOCTYPE html>
+  <html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title data-i18n="title.plan">Учебный трекер</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+
+  <div class="app-container">
+
+    <!-- Навигация -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="study" data-i18n="tab.study">Учёба</button>
+      <button class="tab-btn" data-tab="stats" data-i18n="tab.stats">Статистика</button>
+
+      <div class="lang-selector">
+          <button class="lang-btn">
+              🌐 <span id="current-lang">RU</span> ▼
+          </button>
+
+          <div class="lang-menu hidden">
+              <div data-lang="ru">RU</div>
+              <div data-lang="en">EN</div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Вкладка: Учёба -->
+    <div class="tab-page" id="tab-study">
+
+      <h1 data-i18n="title.plan">План: Браузер, DOM, события</h1>
+
+      <div class="top-row">
+
+        <!-- Таймер -->
+        <div class="circle-timer">
+          <svg class="timer-svg" width="160" height="160">
+            <circle class="bg" cx="80" cy="80" r="70"></circle>
+            <circle class="progress" cx="80" cy="80" r="70"></circle>
+          </svg>
+          <button id="circle-btn" data-i18n="timer.start">Старт</button>
+          <div class="time-text" id="circle-time">00:00:00</div>
+        </div>
+
+        <!-- Стрик -->
+        <div class="streak-box">
+          <svg id="streak-icon" class="streak-icon" viewBox="0 0 64 64">
+            <path class="outer" d="M32 4C26 14 18 20 18 32C18 44 26 52 32 56C38 52 46 44 46 32C46 20 38 14 32 4Z"/>
+            <path class="inner" d="M32 22C29 27 27 30 27 34C27 38 29.5 41 32 42.5C34.5 41 37 38 37 34C37 30 35 27 32 22Z"/>
+          </svg>
+          <div class="streak-count">
+            <span data-i18n="streak.label">Стрик</span>:
+            <span id="streak-count">0</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Прогресс -->
+      <div class="progress-global">
+        <span data-i18n="progress.global">Общий прогресс</span>:
+        <span id="global-percent">0%</span>
+        <div class="bar"><div class="bar-fill" id="global-bar"></div></div>
+      </div>
+
+      <!-- Дни -->
+      <div id="days"></div>
+
+    </div>
+  </div>
+    <!-- Вкладка: Статистика -->
+    <div class="tab-page hidden" id="tab-stats">
+      <div class="stats-layout">
+
+    <!-- ЛЕВАЯ ПАНЕЛЬ — ГОДОВОЙ КАЛЕНДАРЬ -->
+    <div class="stats-left">
+      <div id="year-label"></div>
+      <div id="year-calendar"></div>
+    </div>
+
+    <!-- ПРАВАЯ ПАНЕЛЬ — БОЛЬШОЙ КАЛЕНДАРЬ -->
+    <div class="stats-right">
+      <div>
+        <h2 data-i18n="title.calendar">Календарь</h2>
+        <div id="calendar-month"></div>
+        <div id="calendar"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Модалка -->
+  <div id="day-details" class="modal hidden">
+    <div class="modal-content">
+      <h2 id="details-date" data-i18n="modal.date"></h2>
+      <p id="details-time" data-i18n="modal.time"></p>
+      <h3 data-i18n="modal.tasks">Задачи:</h3>
+      <ul id="details-tasks"></ul>
+      <button id="close-details" data-i18n="modal.close">Закрыть</button>
+    </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/plan.js"></script>
+  <script src="js/streak.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/main.js"></script>
+
+  </body>
+  </html>

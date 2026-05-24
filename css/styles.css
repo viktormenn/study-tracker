@@ -1,0 +1,427 @@
+/* -------------------------
+   БАЗА
+------------------------- */
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  margin: 0;
+  padding: 20px;
+  display: block; /* ← важно! */
+}
+
+/* -------------------------
+   ВКЛАДКА УЧЁБА — 66%
+------------------------- */
+
+.app-container {
+  width: 66%;
+  max-width: 900px;
+  margin: 0 auto; /* ← центрируем Учёбу */
+}
+
+/* -------------------------
+   ТАБЫ
+------------------------- */
+
+.tabs {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #1f2937;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tab-btn.active {
+  color: #fff;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.tab-page.hidden {
+  display: none;
+}
+
+/* -------------------------
+   ТАЙМЕР
+------------------------- */
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.circle-timer {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin-right: 40px;
+}
+
+.timer-svg {
+  transform: rotate(-90deg);
+}
+
+circle {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+circle.bg {
+  stroke: #1e293b;
+}
+
+circle.progress {
+  stroke: #3b82f6;
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  transition: stroke-dashoffset 0.3s linear;
+}
+
+#circle-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 8px 16px;
+  background: #334155;
+  color: #e5e7eb;
+  border: 1px solid #475569;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#circle-btn:hover {
+  background: #475569;
+}
+
+.time-text {
+  position: absolute;
+  bottom: -28px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* -------------------------
+   СТРИК
+------------------------- */
+
+.streak-box {
+  text-align: center;
+}
+
+.streak-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 5px;
+}
+
+.streak-icon .outer {
+  fill: #6b7280;
+}
+
+.streak-icon .inner {
+  fill: #9ca3af;
+}
+
+.streak-icon.active .outer {
+  fill: #f97316;
+}
+
+.streak-icon.active .inner {
+  fill: #facc15;
+}
+
+.streak-count {
+  font-size: 18px;
+  color: #fbbf24;
+}
+
+/* -------------------------
+   ПРОГРЕСС
+------------------------- */
+
+.progress-global {
+  margin: 10px 0 20px;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.bar {
+  width: 100%;
+  height: 8px;
+  background: #1f2937;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #3b82f6);
+  width: 0%;
+  transition: width 0.2s ease;
+}
+
+/* -------------------------
+   ДНИ
+------------------------- */
+
+.day {
+  background: #020617;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #1f2937;
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.day-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.day-subtitle {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.day-body {
+  padding: 0 14px 10px;
+  display: none;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.task input {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.toggle {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+/* -------------------------
+   КАЛЕНДАРЬ (большой)
+------------------------- */
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr; /* ← все клетки одинаковой высоты */
+  gap: 6px;
+  margin-top: 20px;
+}
+
+
+.calendar-day {
+  background: #1e293b;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  color: #cbd5e1;
+  font-size: 14px 10px;
+  white-space: pre-line;
+  transition: 0.15s ease;
+}
+
+.calendar-day:hover {
+  background: #475569;
+}
+
+.activity-0 { background-color: #2a2a2a; }
+.activity-1 { background-color: #1b2919; }
+.activity-2 { background-color: #296b19; }
+.activity-3 { background-color: #63b44a; color: black; font-weight: 600; }
+.activity-4 { background-color: #7be85a; color: black; font-weight: 700; }
+
+/* -------------------------
+   ВКЛАДКА СТАТИСТИКА — НОВЫЙ ЛЕЙАУТ
+------------------------- */
+
+#tab-stats {
+  width: 100%;
+  padding-top: 20px;
+}
+
+.stats-layout {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto; /* ← центрируем статистику */
+}
+
+/* Маленький календарь слева */
+.stats-left {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+/* Большой календарь — 66% */
+.stats-right {
+  width: 66%;
+  min-width: 500px;
+}
+
+/* Лейбл года */
+#year-label {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #e2e8f0;
+}
+
+/* -------------------------
+   МОДАЛКА
+------------------------- */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+/* -------------------------
+   АНИМАЦИИ
+------------------------- */
+
+.current-day {
+  background: rgba(255, 200, 0, 0.12);
+  border-left: 4px solid #ffc400;
+  border-radius: 6px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { background: rgba(255, 200, 0, 0); }
+  to   { background: rgba(255, 200, 0, 0.12); }
+}
+/* Маленький календарь — сетка 3×4 */
+#year-calendar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.year-month {
+  background: #1e293b;
+  padding: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  color: #cbd5e1;
+  transition: 0.15s ease;
+}
+
+.year-month:hover {
+  background: #334155;
+}
+/* -------------------------
+   ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА
+------------------------- */
+
+.lang-selector {
+  margin-left: auto; /* уводим в правый край */
+  position: relative;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+
+  color: #e5e7eb;
+  font-size: 14px;
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.lang-menu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  width: 80px;
+  z-index: 10;
+}
+
+.lang-menu div {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #e2e8f0;
+  transition: background 0.15s ease;
+}
+
+.lang-menu div:hover {
+  background: #334155;
+}
+
+.hidden {
+  display: none;
+}

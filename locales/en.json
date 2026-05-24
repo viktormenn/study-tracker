@@ -1,0 +1,82 @@
+{
+  "tab": {
+    "study": "Study",
+    "stats": "Statistics"
+  },
+
+  "title": {
+    "plan": "Plan: Browser, DOM, Events",
+    "calendar": "Calendar"
+  },
+
+  "timer": {
+    "start": "Start",
+    "stop": "Stop"
+  },
+
+  "progress": {
+    "global": "Total progress"
+  },
+
+  "streak": {
+    "label": "Streak",
+    "day_one": "day",
+    "day_many": "days"
+  },
+
+  "day": {
+    "label": "Day"
+  },
+
+  
+  "calendar": {
+    "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    "month": {
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    },
+    "weekdays": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+  },
+
+
+
+  "modal": {
+    "date": "Date",
+    "time": "Time",
+    "tasks": "Tasks",
+    "close": "Close"
+  },
+  "plan": [
+  ["Browser environment, specifications", "DOM tree", "DOM navigation"],
+  ["Element search", "Node properties"],
+  ["Attributes and properties", "Document modification"],
+  ["Styles and classes"],
+  ["Element sizes", "Window sizes"],
+  ["Coordinates"],
+  ["Intro to events", "Bubbling and capturing"],
+  ["Delegation", "Default actions"],
+  ["Custom events", "UI events"],
+  ["Mouse events", "Hover"],
+  ["Drag'n'Drop"],
+  ["Keyboard", "Pointer events"],
+  ["Scrolling"],
+  ["Forms: properties", "Focus"],
+  ["change/input/cut/copy/paste"],
+  ["submit"],
+  ["DOMContentLoaded/load/unload"],
+  ["async/defer/onload/onerror"],
+  ["MutationObserver"],
+  ["Selection/Range", "Micro/Macro tasks"]
+]
+
+}
