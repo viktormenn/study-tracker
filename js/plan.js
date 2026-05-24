@@ -1,3 +1,4 @@
+
 function getPlan() {
     return translations.plan; // ← теперь план берётся из JSON
 }
@@ -8,7 +9,7 @@ function renderPlan() {
 
     container.innerHTML = "";
 
-    const PLAN = getPlan();
+    window.PLAN = getPlan();
 
     PLAN.forEach((topics, d) => {
         const day = document.createElement("div");

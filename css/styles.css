@@ -235,7 +235,7 @@ circle.progress {
 #calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-auto-rows: 1fr; /* ← все клетки одинаковой высоты */
+  grid-auto-rows: 80px; /* ← все клетки одинаковой высоты */
   gap: 6px;
   margin-top: 20px;
 }
@@ -424,4 +424,8 @@ circle.progress {
 
 .hidden {
   display: none;
+}
+.calendar-day.empty {
+  pointer-events: none;
+  opacity: 0;
 }
