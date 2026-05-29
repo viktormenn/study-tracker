@@ -3,6 +3,41 @@ function getPlan() {
     return translations.plan; // ← теперь план берётся из JSON
 }
 
+function highlightCurrentDay() {
+    const days = document.querySelectorAll(".day");
+    let highlighted = false;
+
+    days.forEach(day => {
+        day.classList.remove("current-day");
+    });
+
+    for (const day of days) {
+        const tasks = day.querySelectorAll("input[type='checkbox']");
+        const allDone = [...tasks].every(t => t.checked);
+
+        if (!allDone) {
+            day.classList.add("current-day");
+            highlighted = true;
+            break;
+        }
+    }
+
+    if (!highlighted && days.length > 0) {
+        days[days.length - 1].classList.add("current-day");
+    }
+}
+
+function updateDayProgress(dayNumber) {
+    const day = document.querySelector(`.day[data-day="${dayNumber}"]`);
+    if (!day) return;
+
+    const tasks = day.querySelectorAll("input[type='checkbox']");
+    const total = tasks.length;
+    const done = [...tasks].filter(t => t.checked).length;
+
+    return { done, total };
+}
+
 function renderPlan() {
     const container = document.getElementById("days");
     if (!container) return;
@@ -71,8 +106,8 @@ function renderPlan() {
         day.appendChild(body);
         container.appendChild(day);
     });
-
-    highlightCurrentDay();
+   
     updateProgress();
     renderCalendar();
+    highlightCurrentDay();
 }
